@@ -1,67 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Startup website for our new tech product">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
-    <title>NextGen Tech - Startup</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfume Shop</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to NextGen Tech</h1>
-        <p>Innovating the Future, Today.</p>
-    </header>
 
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="background-video" aria-hidden="true">
+    <source src="tt.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Perfume Shop</h1>
     <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Product</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+      <a href="#perfumes">Perfumes</a>
+      <a href="#contact">Contact</a>
+      <span class="cart" role="button" aria-label="Toggle cart" tabindex="0" id="cart-icon">
+        🛒 <span id="cart-count">0</span>
+      </span>
     </nav>
+  </header>
 
-    <section id="about">
-        <h2>About Our Startup</h2>
-        <p>NextGen Tech is a startup focused on delivering cutting-edge AI and IoT solutions to modern challenges. Our goal is to bridge the gap between smart technology and everyday users.</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Featured Perfumes</h2>
+    <p>Discover your signature scent</p>
+    <div id="visitor-count" aria-live="polite" aria-atomic="true"></div>
+  </section>
 
-    <section id="product">
-        <h2>Our Product</h2>
-        <p>We are currently developing an AI-powered home assistant that not only automates tasks but also learns from your habits to improve your life.</p>
-        <ul>
-            <li>Voice recognition</li>
-            <li>Energy-saving suggestions</li>
-            <li>Smart home integration</li>
-        </ul>
-    </section>
+  <!-- Perfumes Grid -->
+  <section id="perfumes" class="products-grid" aria-label="Featured perfumes">
+    <article class="product" data-name="Rose Blossom" data-price="39.99">
+      <img src="66.jpg" alt="Rose Blossom Perfume" />
+      <h3>Rose Blossom</h3>
+      <p>$39.99</p>
+      <input type="number" min="1" value="1" aria-label="Quantity for Rose Blossom" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </article>
+    <article class="product" data-name="Citrus Fresh" data-price="29.99">
+      <img src="88.jpg" alt="Citrus Fresh Perfume" />
+      <h3>Citrus Fresh</h3>
+      <p>$29.99</p>
+      <input type="number" min="1" value="1" aria-label="Quantity for Citrus Fresh" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </article>
+    <article class="product" data-name="Vanilla Dream" data-price="34.99">
+      <img src="99.jpg" alt="Vanilla Dream Perfume" />
+      <h3>Vanilla Dream</h3>
+      <p>$34.99</p>
+      <input type="number" min="1" value="1" aria-label="Quantity for Vanilla Dream" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </article>
+    <article class="product" data-name="Ocean Breeze" data-price="44.99">
+      <img src="download.jpg" alt="Ocean Breeze Perfume" />
+      <h3>Ocean Breeze</h3>
+      <p>$44.99</p>
+      <input type="number" min="1" value="1" aria-label="Quantity for Ocean Breeze" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </article>
+  </section>
 
-    <section id="team">
-        <h2>Meet the Team</h2>
-        <p>Our team is composed of talented engineers, designers, and entrepreneurs who are passionate about technology and innovation.</p>
-    </section>
+  <!-- Cart Sidebar -->
+  <aside class="cart-box" aria-hidden="true" id="cart-box" aria-label="Shopping cart">
+    <button class="close-btn" aria-label="Close cart">&times;</button>
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: $0.00</div>
+  </aside>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: contact@nextgentech.com</p>
-        <p>Phone: +123-456-7890</p>
-        <p>Location: Silicon Valley, CA</p>
-    </section>
+  <!-- Contact Form -->
+  <section id="contact" class="contact" aria-label="Contact form">
+    <h2>Contact Us</h2>
+    <form id="contactForm" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required minlength="2" />
+      <div id="nameError" class="error-message" aria-live="polite"></div>
 
-    <p>Follow us on social media for updates!</p>
-    <p>Twitter: @NextGenTech</p>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+      <div id="emailError" class="error-message" aria-live="polite"></div>
 
-    <footer>
-        <p>&copy; 2025 NextGen Tech. All rights reserved.</p>
-    </footer>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required minlength="10"></textarea>
+      <div id="messageError" class="error-message" aria-live="polite"></div>
 
-    <button onclick="alert('Thank you for reaching out!')">Contact Now</button>
-    <p>Empowering the future with every click.</p>
-    <p>We are excited to launch our product soon. Stay tuned for updates.</p>
-    <p>Join our newsletter to be the first to know about our innovations.</p>
-    <p>Our journey is just beginning, and we’re glad you’re with us.</p>
-    <p>Let’s build the future together — one innovation at a time.</p>
+      <button type="submit" class="btn-submit">Send Message</button>
+      <div id="formSuccess" class="form-success" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Perfume Shop. All rights reserved.
+  </footer>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
